@@ -1,0 +1,22 @@
+{
+  "name": "asistenciasbd",
+  "version": "1.0.0",
+  "description": "API para manejador de asistencias.",
+  "main": "bd.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon bd.js"
+  },
+  "author": "Daniel Aldeco, Sofía Salgado, Eduardo Montoya, Alexis Sagasta",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "connect-multiparty": "^2.2.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.13"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
