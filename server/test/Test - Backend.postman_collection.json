@@ -1,0 +1,84 @@
+{
+	"info": {
+		"_postman_id": "2ebe422e-e72f-4025-842b-67dd42b172ca",
+		"name": "Test - Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Agregar Curso",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bf76091d-45b2-4b94-8eb7-35f23add71c2",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Psicología 2\",\r\n    \"unidades\": 6\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/cursos/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"cursos",
+						""
+					]
+				},
+				"description": "Se agrega un curso en el Backend"
+			},
+			"response": []
+		},
+		{
+			"name": "Verificar Curso",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c3ac8259-bb15-42ea-b826-da872e6954a6",
+						"exec": [
+							"tests[\"El curso esta registrado exitosamente\"] = responseBody.has(\"Psicología 2\");\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/cursos/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"cursos",
+						""
+					]
+				},
+				"description": "Verifica que se haya agregado el curso"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
