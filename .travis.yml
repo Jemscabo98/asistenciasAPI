@@ -12,5 +12,4 @@ before_script:
   - node_modules/.bin/newman --version
 
 script:
-  - newman run asistenciasAPI\server\tests/Backend.postman_environment.json
-  - newman run asistenciasAPI\server\tests/Backend.postman_collection.json
+  - newman run "asistenciasAPI\server\tests/Backend.postman_environment.json" -e "asistenciasAPI\server\tests/Backend.postman_collection.json"
