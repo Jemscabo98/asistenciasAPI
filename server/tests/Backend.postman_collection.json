@@ -32,10 +32,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/api/cursos/",
+					"raw": "http://localhost:3000/api/cursos/",
+					"protocol": "http",
 					"host": [
-						"{{url}}"
+						"localhost"
 					],
+					"port": "3000",
 					"path": [
 						"api",
 						"cursos",
@@ -65,10 +67,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/api/cursos/",
+					"raw": "http://localhost:3000/api/cursos/",
+					"protocol": "http",
 					"host": [
-						"{{url}}"
+						"localhost"
 					],
+					"port": "3000",
 					"path": [
 						"api",
 						"cursos",
@@ -76,6 +80,217 @@
 					]
 				},
 				"description": "Verifica que se haya agregado el curso"
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar Grupo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "curso",
+							"value": "Psicología 2",
+							"type": "text"
+						},
+						{
+							"key": "grupo",
+							"value": "15:00 pm",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/grupos/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"grupos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verificar Add-Grupo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "62a04c94-0cfd-4f5d-aeae-fa8a53f3f6a4",
+						"exec": [
+							"tests[\"El grupo esta registrado exitosamente\"] = responseBody.has(\"15:00 pm\");\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/grupos/Psicología 2/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"grupos",
+						"Psicología 2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Grupo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6d7ec7a0-5c33-43bc-9bdf-96e1f81e6c31",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grupo",
+							"value": "15:00 pm",
+							"type": "text"
+						},
+						{
+							"key": "update",
+							"value": "18:00 pm",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/grupos/Psicología 2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"grupos",
+						"Psicología 2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verificar Update-Grupo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "56b893db-99ca-4b32-92fe-27a942c940c5",
+						"exec": [
+							"tests[\"El grupo esta actualizado correctamente\"] = responseBody.has(\"18:00 pm\");\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/grupos/Psicología 2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"grupos",
+						"Psicología 2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Grupo",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/grupos/Psicología 2/18:00 pm",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"grupos",
+						"Psicología 2",
+						"18:00 pm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verificar Del-Grupo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5329cb6f-857b-4d0a-90c8-be9a795435dd",
+						"exec": [
+							"pm.test(\"Grupo is not present\", function() {\r",
+							"   const jsonData = pm.response.json();\r",
+							"   pm.expect(jsonData.grupos[0].grupos[0]).not.to.exist;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/grupos/Psicología 2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"grupos",
+						"Psicología 2"
+					]
+				}
 			},
 			"response": []
 		}
