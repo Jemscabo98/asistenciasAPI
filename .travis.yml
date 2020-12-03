@@ -10,9 +10,9 @@ before_script:
   - node --version
   - npm --version
   - newman --version
+  - node ../asistenciasAPI/server/bd.js
 
 script:
-  - node ../asistenciasAPI/server/bd.js
   - newman run https://www.getpostman.com/collections/79b7dcc81f6ddb4b674e
   - cd ../asistenciasAPI/server/tests/
   - newman run Backend.postman_environment.json -e Backend.postman_collection.json
