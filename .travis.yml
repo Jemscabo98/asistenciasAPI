@@ -12,5 +12,5 @@ before_script:
   - newman --version
 
 script:
-  - node /server/bd.js
-  - newman run /server/tests/Backend.postman_environment.json -e /server/tests/Backend.postman_collection.json
+  - node ../asistenciasAPI/server/bd.js
+  - newman run ../asistenciasAPI/server/tests/Backend.postman_environment.json -e ../asistenciasAPI/server/tests/Backend.postman_collection.json
