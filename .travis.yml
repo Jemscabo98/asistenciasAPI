@@ -13,4 +13,4 @@ before_script:
 
 script:
   - node ..\asistenciasAPI\server\bd.js
-  - newman run "asistenciasAPI\server\tests/Backend.postman_environment.json" -e "asistenciasAPI\server\tests/Backend.postman_collection.json"
+  - newman run ..\asistenciasAPI\server\tests/Backend.postman_environment.json -e ..\asistenciasAPI\server\tests/Backend.postman_collection.json
